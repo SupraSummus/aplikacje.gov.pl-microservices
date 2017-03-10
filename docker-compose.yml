@@ -1,11 +1,18 @@
 version: '3'
+
+volumes:
+  limesurvey-mysql:
+  limesurvey-upload:
+
 services:
   dependencymanager:
     build: services/dependencymanager
+
   dashboard:
     build: apps/dashboard
     ports:
      - 5002:80
+
   messageboard:
     build: apps/messageboard
     links:
@@ -13,3 +20,21 @@ services:
     ports:
      - 5001:80
     command: --self-public-url http://127.0.0.1:5001/
+
+  limesurvey:
+    image:
+      crramirez/limesurvey:latest
+    volumes:
+     - limesurvey-mysql:/var/lib/mysql
+     - limesurvey-upload:/app/upload
+     - ./configuration/limesurvey/config.php:/app/application/config/config.php:ro
+
+  nginx:
+    image:
+      nginx
+    links:
+     - limesurvey
+    ports:
+     - 8080:80
+    volumes:
+     - ./configuration/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
