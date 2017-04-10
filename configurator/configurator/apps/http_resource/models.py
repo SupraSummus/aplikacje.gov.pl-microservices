@@ -18,6 +18,12 @@ class HTTPResource(Resource):
     port = models.IntegerField()
     path = models.CharField(max_length=1000)
 
+    def requirements(self):
+        return frozenset([self.app])
+
+    def optional_requirements(self):
+        return frozenset()
+
     @property
     def full_address(self):
         return 'http://{}:{}{}'.format(self.host, self.port, self.path)
