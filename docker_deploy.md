@@ -3,6 +3,12 @@ Deploy on Docker
 
 Services in this repository can be executed inside docker containers.
 
+Docker
+------
+
+If you don't have Docker installed go to [docs.docker.com](https://docs.docker.com/) to download the appropriate version for your OS and to start up Docker on your machine (*Get Started* section).
+
+
 Network
 -------
 
