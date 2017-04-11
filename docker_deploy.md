@@ -27,3 +27,6 @@ For convenience of deployment this repository includes `docker-compose` configur
 To run project install `docker-compose` and then execute in root directory of this repository
 
     docker-compose up
+
+!!! Note for non-Linux users: Since docker runs in Linux VM loacalhost ports specified in `docker-compose.yml` file won't match ports at your machine.
+You can use Kitematic app (it should come with your installation) to look up ports valid for your hosts once you run the above command.
