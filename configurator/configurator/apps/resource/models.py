@@ -1,6 +1,7 @@
 from django.db import models
 from polymorphic.models import PolymorphicModel
 
+
 class Resource(PolymorphicModel):
     """Abstract resource."""
 
@@ -14,6 +15,16 @@ class Resource(PolymorphicModel):
     def optional_requirements(self):
         """Frozenset of resources directly optionally required by this
         resource."""
+        raise NotImplementedError()
+
+    def to_dicts_and_lists(self, depth=None):
+        """Convert resource to structure of dicts and lists suitable for
+        encoding in JSON.
+
+        `depth` is integer or None. If None all subresources should be
+        inlined. If not None subresources to this level should be
+        inlined. Value of 0 means that only single id will be returned.
+        """
         raise NotImplementedError()
 
     def __str__(self):
@@ -50,7 +61,6 @@ class IntResource(Resource):
 
 class ListResource(Resource):
     """List of resources. All of them should be same type."""
-<<<<<<< HEAD
     type_name = 'list'
     value = models.ManyToManyField(Resource, related_name='member_of_lists')
 
