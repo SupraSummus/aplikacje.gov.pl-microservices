@@ -7,7 +7,6 @@ class ResourceChildAdmin(PolymorphicChildModelAdmin):
     """ Base admin class for all child models """
     base_model = Resource
 
-
 @admin.register(StringResource)
 class StringResourceAdmin(ResourceChildAdmin):
     base_model = StringResource
