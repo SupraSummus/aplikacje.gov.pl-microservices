@@ -1,0 +1,59 @@
+[
+{
+  "model": "resource.resource",
+  "pk": 1,
+  "fields": {
+    "polymorphic_ctype": 14,
+    "name": "Nginx",
+    "description": "Nginx reverse proxy server"
+  }
+},
+{
+  "model": "resource.resource",
+  "pk": 2,
+  "fields": {
+    "polymorphic_ctype": 14,
+    "name": "Apache",
+    "description": "Apache web server"
+  }
+},
+{
+  "model": "resource.resource",
+  "pk": 3,
+  "fields": {
+    "polymorphic_ctype": 8,
+    "name": "titlecos",
+    "description": "string to be shown in index"
+  }
+},
+{
+  "model": "resource.resource",
+  "pk": 4,
+  "fields": {
+    "polymorphic_ctype": 11,
+    "name": "apache-conf",
+    "description": "Resources for apache image"
+  }
+},
+{
+  "model": "resource.stringresource",
+  "pk": 3,
+  "fields": {
+    "value": "TEST"
+  }
+},
+{
+  "model": "resource.dictresource",
+  "pk": 4,
+  "fields": {}
+},
+{
+  "model": "resource.dictresourceentry",
+  "pk": 1,
+  "fields": {
+    "dictionary": 4,
+    "key": "title",
+    "value": 3
+  }
+}
+]
