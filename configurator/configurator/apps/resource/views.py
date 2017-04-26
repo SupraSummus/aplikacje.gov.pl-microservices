@@ -3,5 +3,5 @@ from configurator.apps.resource.forms import ResourceFormSet
 from configurator.apps.resource.models import Resource
 
 def index(request):
-	formset = ResourceFormSet(queryset=Resource.objects.all())
+	formset = ResourceFormSet()
 	return render(request, 'main.html', {'formset': formset})
