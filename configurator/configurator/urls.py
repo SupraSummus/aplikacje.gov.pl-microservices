@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from configurator.apps.resource.views import index
+from configurator.apps.resource.views import index, forms
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', index)
+    url(r'^$', index),
+    url(r'conf', forms)
 ]

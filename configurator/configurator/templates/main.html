@@ -7,12 +7,14 @@
     </head>
     <body>
     <div class="container-fluid" style="text-align: center;">
-        <h1>TEST</h1>
+        <h2>Provide a {{form.description.value|lower}}</h2>
         <form class="form-horizontal">
         {% csrf_token %}
-        {% for form in formset %}
+        {# {{form}} #}
+        {# {% for form in formset %} #}
             <form class="form-horizontal">
                 {% for field in form %}
+                {% if not field.is_hidden %}
                     <div class="form-group">
                         {{field|label_with_classes:'col-sm-4 control-label'}}
                         <div class='col-sm-4'>
@@ -20,10 +22,13 @@
                             {{field.errors}}
                         </div>
                     </div>
+                {% else %}
+                {{field}}
+                {% endif %}
                 {% endfor %}
             </form>
             <hr>
-        {% endfor %}
+        {# {% endfor %} #}
         <button type="submit" class="btn btn-primary btn-sm">Submit</button>
         </form>
         </div>

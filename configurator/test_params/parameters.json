@@ -1,0 +1,17 @@
+{
+  "image": "httpd",
+  "name": "title server",
+  "provides": [
+    {
+      "api": "gui",
+      "port": "80",
+      "type": "http_service"
+    }
+  ],
+  "requires": {
+    "title": {
+      "description": "Title to be displayed.",
+      "type": "string"
+    }
+  }
+}
