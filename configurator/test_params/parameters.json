@@ -9,6 +9,10 @@
     }
   ],
   "requires": {
+    "plimko": {
+      "description": "test int",
+      "type": "int"
+    },
     "title": {
       "description": "Title to be displayed.",
       "type": "string"

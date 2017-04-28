@@ -11,7 +11,7 @@ ResourceFormSet = polymorphic_modelformset_factory(Resource, formset_children=(
     PolymorphicFormSetChild(DictResource),
     PolymorphicFormSetChild(AppResource),
     PolymorphicFormSetChild(HTTPResource),
-), exclude=('id', 'polymorphic_ctype', 'delete'))
+), fields = ('name', 'description',))
 
 class StringResourceForm(forms.ModelForm):
     class Meta:
@@ -22,5 +22,11 @@ class StringResourceForm(forms.ModelForm):
             'description': forms.HiddenInput()
         }
 
+# class ResourceForm(forms.Form):
+# 	name = forms.CharField(widget=forms.HiddenInput)
+# 	description = forms.TextField(widget=forms.HiddenInput)
+# 	model = forms.CharField(widget=forms.HiddenInput)
+# 	value = 
+
 class UploadFileForm(forms.Form):
-    file = forms.FileField()
+    file = forms.FileField(label="Wybierz plik konfiguracyjny")
