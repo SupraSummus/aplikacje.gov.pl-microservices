@@ -4,6 +4,7 @@ from polymorphic.models import PolymorphicModel
 class Resource(PolymorphicModel):
     """Abstract resource."""
 
+    # czy name nie powinien być czasem unique?
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
 

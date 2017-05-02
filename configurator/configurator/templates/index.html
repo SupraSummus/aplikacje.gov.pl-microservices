@@ -10,10 +10,7 @@
 <form class="form-inline" action="" enctype="multipart/form-data" method="POST">
 {% csrf_token %}
   <div class="form-group">
-    {# <label for="path">Wybierz plik konfiguracyjny:</label> #}
     {{form}}
-    {# <input type="file" name="parameters" id="path" accept=".json"> #}
-    <!--<input type="text" class="form-control" id="path" placeholder="/etc/">-->
     <button type="submit" class="btn btn-sm btn-default" style="margin-top: 20px;">Dalej >></button>
   </div>
 </div>

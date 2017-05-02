@@ -8,11 +8,10 @@
     <body>
     <div class="container-fluid" style="text-align: center;">
         <h2>Configure your app</h2>
-        {# <h3>{{req}}</h3> #}
         <form class="form-horizontal" action='configured/' method="POST">
         <input id="keys" name="keys" type="hidden" value={{req}} />
+        <input id="meta" name="meta" type="hidden" value={{meta}} />
         {% csrf_token %}
-        {# {{form}} #}
         {% for form in forms %}
         <h4>Provide a {{form.description.value|lower}}</h4>
                 {% for field in form %}
