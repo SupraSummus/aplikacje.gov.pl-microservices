@@ -27,10 +27,7 @@ def configured(request):
     # parse data from forms
     for k in keys:
         prf, model_name = k.split(':')
-        model = getattr(sys.modules[__name__], model_name)
-        model_form = modelform_factory(model, 
-            fields = ('name', 'description','value',), 
-            widgets = {'name': django.forms.HiddenInput(),'description': django.forms.HiddenInput()})
+        model_form = get_resource_form(model_name)
         forms.append(model_form(request.POST, prefix=prf))
 
     #create dict resources for wrapping up parameters
