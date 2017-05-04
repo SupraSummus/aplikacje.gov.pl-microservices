@@ -27,3 +27,6 @@ class MountedFile(models.Model):
     app = models.ForeignKey(AppResource, related_name='files')
     mount_path = models.CharField(max_length=300)
     file = models.FileField(upload_to='mounted_files/')
+
+    def __str__(self):
+        return '{}: {}'.format(self.app, self.file)

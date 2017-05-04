@@ -1,0 +1,36 @@
+{% load myfilters %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TEST</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+    <div class="container-fluid" style="text-align: center;">
+        <h2>Configure your app</h2>
+        <form class="form-horizontal" action='configured/' method="POST">
+        <input id="keys" name="keys" type="hidden" value={{req}} />
+        <input id="meta" name="meta" type="hidden" value={{meta}} />
+        {% csrf_token %}
+        {% for form in forms %}
+        <h4>Provide a {{form.description.value|lower}}</h4>
+                {% for field in form %}
+                {% if not field.is_hidden %}
+                    <div class="form-group">
+                        {{field|label_with_classes:'col-sm-4 control-label'}}
+                        <div class='col-sm-4'>
+                            {{field|addclass:'form-control'}}
+                            {{field.errors}}
+                        </div>
+                    </div>
+                {% else %}
+                {{field}}
+                {% endif %}
+                {% endfor %}
+            <hr>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+        </form>
+        </div>
+    </body>
+</html>

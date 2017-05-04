@@ -23,3 +23,6 @@ class HTTPResource(Resource):
 
     def optional_requirements(self):
         return frozenset()
+
+    def full_address(self):
+        return 'http://{}:{}{}'.format(self.host, self.port, self.path)

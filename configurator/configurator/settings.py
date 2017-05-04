@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'polymorphic',
     'configurator.apps.resource',
     'configurator.apps.application',
     'configurator.apps.http_resource',
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'configurator.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['configurator/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
