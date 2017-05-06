@@ -2,3 +2,5 @@ venv/
 *.pyc
 db.sqlite3
 .DS_store
+docker_compose/
+mounted_files/

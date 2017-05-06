@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'configurator.apps.http_resource',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -124,3 +124,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # MEDIA_ROOT = '/media/'
+
+MOUNTED_FILES_TEMPLATES_DIR = 'mounted_files/'
+
+START_PRE_HOOKS = [
+    'configurator.apps.application.start.pre_start',
+]
+START_POST_HOOKS = [
+    'configurator.apps.application.start.post_start',
+]
+
+DOCKER_COMPOSE_DIR = 'docker_compose/'
